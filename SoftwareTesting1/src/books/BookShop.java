@@ -25,20 +25,15 @@ public class BookShop {
 	    for (int i : books) {
 			if (i > 0) {
 				differentBooks++;
+				price += 8*i;
 			}
 		}
 	    
-	    // We add the price of each book on the final price
-	    for (int i : books) {
-			price += 8*i;
-		}
-	    
 	    // We add the promotions depending on the different books purchased
-	    if (differentBooks == 1);
-	    if (differentBooks == 2) price -= (0.07*price);
-	    if (differentBooks == 3) price -= (0.14*price);
-	    if (differentBooks == 4) price -= (0.28*price);
-	    if (differentBooks == 5) price -= (0.35*price);
+	    if (differentBooks == 2) price -= (0.07*8*2);
+	    if (differentBooks == 3) price -= (0.14*8*3);
+	    if (differentBooks == 4) price -= (0.28*8*4);
+	    if (differentBooks == 5) price -= (0.35*8*5);
 			
 		// We return the final price
 	    return price;

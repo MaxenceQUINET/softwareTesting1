@@ -28,7 +28,7 @@ public class BookShopTest {
  	    public void costTest(){
  	    	System.out.println("The customer takes 1 book, so the result should be : 8€");
  	    	double result = HarryPotterShop.cost(books);
- 	    	System.out.println(result);
+ 	    	System.out.println("The result is : "+result);
  	    	assertEquals(8.00, result, 0.00);
  	    }
     
@@ -39,7 +39,7 @@ public class BookShopTest {
     public void costTestSimple(){
     	System.out.println("The customer takes 5 books including 5 different, so the price should be 5 * 8 = 40 - 35% off, or 40-35% = 26€");
     	double result = HarryPotterShop.cost(booksSimple);
-    	System.out.println(result);
+    	System.out.println("The result is : "+result);
     	assertEquals(26.00, result, 0.00);
     }
     
@@ -47,15 +47,38 @@ public class BookShopTest {
     
 	@Test
     public void costTestComplexe(){
-    	System.out.println("The customer takes 4 books including 3 different, so the price should be 4 * 8 = 32 - 14% off, or 32-14% = 27.52€");
+    	System.out.println("The customer takes 4 books including 3 different, so the price should be 1*8+3*(8-14%) off, or 8+6,88*3 = 28,64€");
     	double result = HarryPotterShop.cost(booksComplexe);
-    	System.out.println(result);
-    	assertEquals(27.52, result, 0.00);
+    	System.out.println("The result is : "+result);
+    	assertEquals(28.64, result, 0.00);
     }
+	
+	//Bonus Complexe test
+	
+	int []bonusBooks = {1, 3, 4, 0 ,0};
+	@Test
+    public void costBonusTest(){
+    	System.out.println("The customer takes 8 books including 3 different, so the price should be 5*8+3*(8-14%) off, or 40+6,88*3 = 60,64€");
+    	double result = HarryPotterShop.cost(bonusBooks);
+    	System.out.println("The result is : "+result);
+    	assertEquals(60.64, result, 0.00);
+    }
+	
+//	//Ultime test 
+//	
+//	int []ultimeBooks = {2,4,3,1,7};
+//	
+//	@Test
+//    public void costUltimeTest(){
+//    	System.out.println("The customer takes 17 books including 5 different, so the price should be 12*8+5*(8-35%), or ");
+//    	double result = HarryPotterShop.cost(bonusBooks);
+//    	System.out.println("The result is : "+result);
+//    	assertEquals(60.64, result, 0.00);
+//    }
 
 	
 	/* 
-	 * With these 3 tests: 1 test with a single purchase, 1 test with several purchases and all different, and another with several 
+	 * With these 4 tests: 1 test with a single purchase, 1 test with several purchases and all different, and another with several 
 	 * purchases but some duplicate, we can confirm that the code is functional
 	 */
     
